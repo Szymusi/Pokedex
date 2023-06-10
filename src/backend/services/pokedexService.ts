@@ -151,7 +151,7 @@ export class PokedexService {
             "pokedexId": pokedexId
           },
         });
-        return { statusCode: StatusCodes.OK, message: newPokemon.id}
+        return { statusCode: StatusCodes.CREATED, message: newPokemon.id}
       } catch (error) {
         return { statusCode: StatusCodes.BAD_REQUEST, message: `Failed to create pokemon. Reason: ${error}`}
       }
