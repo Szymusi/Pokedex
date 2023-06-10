@@ -11,24 +11,16 @@ datasource db {
 }
 
 model Pokedex {
-  id    Int     @id @default(autoincrement())
+  id    Int @id @default(autoincrement())
   email String  @unique
   name  String?
   pokemons Pokemon[]
 }
 
 model Pokemon {
-  id Int @id 
+  id Int @id @default(autoincrement())
   number Int
   name String
-  species String
   pokedex Pokedex @relation(fields: [pokedexId], references: [id])
   pokedexId Int
-
 }
-
-model PokemonType {
-  
-}
-
-

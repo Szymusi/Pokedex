@@ -1,13 +1,11 @@
 import { RequestHandler } from 'express'
-import { StatusCodes } from 'http-status-codes'
 import { PokedexService } from '../../services/pokedexService'
 
 
-export const GetPokemon: RequestHandler = async (req, res) => {
+export const TransferPokemon: RequestHandler = async (req, res) => {
     const pokedexService = new PokedexService()
-    const { pokemonName } = req.body
-
-    var resp = await pokedexService.GetPokemon(pokemonName)
+    const { senderId, reciverId, pokemonId } = req.body
+    var resp = await pokedexService.TransferPokemon(senderId, reciverId, pokemonId)
     res.status(resp.statusCode)
     res.send(resp.message)
 }

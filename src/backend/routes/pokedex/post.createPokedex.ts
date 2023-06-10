@@ -10,8 +10,8 @@ export const NewDeck: RequestHandler = async (req, res) => {
 
     try {
         var resp = await pokedexService.CreateNewDeck(email,name)
-        res.status(StatusCodes.CREATED)
-        res.send({pokedexId: resp})
+        res.status(resp.statusCode)
+        res.send({pokedexId: resp.message})
     } catch (err) {
         const response = checkPrismaError(err, {
         uniqueConstraintFailed: 'Email must be unique.',
