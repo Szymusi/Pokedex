@@ -96,7 +96,7 @@ export class PokedexService {
       }
       
       if(reciverPokedex === null){
-        return { statusCode: StatusCodes.NOT_FOUND, message: "Sender pokedex not found"}
+        return { statusCode: StatusCodes.NOT_FOUND, message: "Reciver pokedex not found"}
       }
 
       if(!senderPokedex.pokemons.find(x => x.id === pokemonId)){
